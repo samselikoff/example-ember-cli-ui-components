@@ -1,0 +1,67 @@
+{{#each componentStyles as |componentStyle|}}
+  {{#sg-subtitle}}
+    {{componentStyle.name}}
+  {{/sg-subtitle}}
+
+  {{#if componentStyle.text}}
+    {{#sg-text}}
+      {{componentStyle.text}}
+    {{/sg-text}}
+  {{/if}}
+
+  {{#sg-demo as |demo|}}
+    {{#demo.example name='button-colors'}}
+      {{#each componentStyle.styles as |style|}}
+        <span class="pr2">
+          {{#component componentName style=style}}
+            {{style}}
+          {{/component}}
+        </span>
+      {{else}}
+        {{#component componentName}}
+          Default style
+        {{/component}}
+      {{/each}}
+    {{/demo.example}}
+{{!--
+    {{demo.snippet 'button-colors.hbs'}} --}}
+  {{/sg-demo}}
+{{/each}}
+
+{{!-- {{#sg-subtitle}}
+  Colors
+{{/sg-subtitle}}
+
+{{#sg-demo as |demo|}}
+  {{#demo.example name='i-button-colors'}}
+    <Button @style='gray'>
+      gray
+    </Button>
+
+    <Button @style='brand'>
+      brand
+    </Button>
+
+    <Button @style='warn'>
+      warn
+    </Button>
+
+    <Button @style='white'>
+      white
+    </Button>
+
+    <Button @style='blue'>
+      blue
+    </Button>
+
+    <Button @style='white-bg'>
+      white-bg
+    </Button>
+
+    <Button @style='subtle'>
+      subtle
+    </Button>
+  {{/demo.example}}
+
+  {{demo.snippet 'button-colors.hbs'}}
+{{/sg-demo}} --}}
